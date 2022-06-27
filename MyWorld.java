@@ -22,6 +22,6 @@ public class MyWorld extends World
     }
     
     void prepare(){
-        Greenfoot.setWorld(new scrollingWorld());
+        Greenfoot.setWorld(new ScrollingWorld());
     }
 }

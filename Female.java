@@ -13,7 +13,7 @@ public class Female extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GifImage female = new GifImage("female_right.gif");
+    GifImage female = new GifImage("female_select.gif");
     GifImage female_mirror = new GifImage("female_left.gif");
     
     public void act()
@@ -21,9 +21,9 @@ public class Female extends Actor
         setImage(female.getCurrentImage());
         
         if(Greenfoot.mouseClicked(this)){
-            World_Gender.gender = female;
+            World_Gender.gender = new GifImage("female_right.gif");
             World_Gender.gender_mirror = female_mirror;
-            Greenfoot.setWorld(new scrollingWorld());
+            Greenfoot.setWorld(new ScrollingWorld());
         }
     }
 }

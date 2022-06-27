@@ -27,10 +27,20 @@ public class World_Gender extends World
     private void prepare()
     {
         //simply, this will executed before world played(run)
-        showText("Select Gender",300,100);
+        GreenfootImage textTitle = new GreenfootImage("Select Gender", 32, Color.BLACK, new Color(0,0,0,0));
+        getBackground().drawImage(textTitle, 219, 100);
+        
+        //showText("Select Gender",32, Color.BLACK,300,100);
+        
+        
         Female female = new Female();
+        female.setImage("images/female_select.gif");
         addObject(female,200,200);
         Male male = new Male();
+        male.setImage("images/male_select.gif");
         addObject(male,400,200);
+        
+
+        
     }    
 }

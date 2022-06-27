@@ -10,14 +10,12 @@ import java.util.ArrayList;
 
 
 
-public class scrollingWorld extends World
+public class ScrollingWorld extends World
 {
     /**
      * Constructor for objects of class scrollingWorld.
      * Add image bg for background
      */
-    
-    
     
     
     private GreenfootImage bg0 = new GreenfootImage("bg/1.png");
@@ -51,8 +49,10 @@ public class scrollingWorld extends World
     private ArrayList<Ground> grounds = new ArrayList<Ground>();
     Ground first,last;
 
-
-    public scrollingWorld()
+    static GreenfootSound point = new GreenfootSound("point.wav");
+    static GreenfootSound blast = new GreenfootSound("blast.wav");
+    
+    public ScrollingWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
@@ -84,10 +84,11 @@ public class scrollingWorld extends World
         tree5.setBG(bg4);
         
         addObject(groundlong, 0, getHeight()-20);
-        addObject(new player(), 300, 200);
-        addObject(new Enemy(),600, 200);
-
-        setPaintOrder(player.class, GroundLong.class);
+        addObject(new Player(), 300, 200);
+        addObject(new Enemy(),600, 320);
+        addObject(new Candy(), 500, 300);
+        
+        setPaintOrder(Player.class, GroundLong.class);
         
         addObject(counter,72,37);
         addObject(counter2,72,60);
@@ -145,18 +146,11 @@ public class scrollingWorld extends World
             trees.get(4).setLocation(trees.get(4).getX()+dx+1, trees.get(4).getY());
             trees.get(3).setLocation(trees.get(3).getX()+dx+2, trees.get(3).getY());
             trees.get(2).setLocation(trees.get(2).getX()+dx+3, trees.get(2).getY());
-        }
-
-        // if(tree5.getX() < 300 && tree5.getX() > 190 ){
-        //     // addTree(true,tree5.getRight() + tree5.getWidth(),tree5.getY());
-        //     addTree(true,900, 200);
-            
+        }   
         }
 
 
     //getter setter for movement
-
-
     public int getMovement(){
         return movement;
     } 

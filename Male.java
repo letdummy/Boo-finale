@@ -13,19 +13,19 @@ public class Male extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GifImage male = new GifImage("male_right.gif");
+    //GifImage male = new GifImage("male_right.gif");
+    GifImage male = new GifImage("male_select.gif");
     GifImage male_mirror = new GifImage("male_left.gif");
     
     public void act()
     {
         setImage(male.getCurrentImage());
         
-        setImage(male.getCurrentImage());
-        
         if(Greenfoot.mouseClicked(this)){
+            GifImage male = new GifImage("male_right.gif");
             World_Gender.gender = male;
             World_Gender.gender_mirror = male_mirror;
-            Greenfoot.setWorld(new scrollingWorld());
+            Greenfoot.setWorld(new ScrollingWorld());
         }        
     }
 }
