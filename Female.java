@@ -13,6 +13,8 @@ public class Female extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    //default value is female_select.gif, but once this object clicked
+    //the value is updated into female_right.gif
     GifImage female = new GifImage("female_select.gif");
     GifImage female_mirror = new GifImage("female_left.gif");
     
@@ -20,9 +22,14 @@ public class Female extends Actor
     {
         setImage(female.getCurrentImage());
         
+        //to select character female
+        //edit gender and gender_mirror value in World_Gender 
+        //into new GifImage("female_right.gif");
+        //and new GifImage("female_left.gif");          
         if(Greenfoot.mouseClicked(this)){
             World_Gender.gender = new GifImage("female_right.gif");
             World_Gender.gender_mirror = female_mirror;
+            World_Gender.selector.stop();
             Greenfoot.setWorld(new ScrollingWorld());
         }
     }

@@ -18,8 +18,12 @@ public class Door extends Actor
     {
         setImage(door.getCurrentImage());
         
+        //when it is clicked, it will stop end.wav playLoop, change current world into World_Gender.
+        //and start to playLoop the selector.wav
         if(Greenfoot.mouseClicked(this)){
+            World_End.end.stop();
             Greenfoot.setWorld(new World_Gender());
+            World_Gender.selector.playLoop();
         }
         
         getWorld().showText("retry", getX(), getY()+30);        

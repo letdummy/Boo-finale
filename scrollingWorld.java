@@ -12,11 +12,6 @@ import java.util.ArrayList;
 
 public class ScrollingWorld extends World
 {
-    /**
-     * Constructor for objects of class scrollingWorld.
-     * Add image bg for background
-     */
-    
     //why static? because we want remove this later
     static Hp lives1 = new Hp();
     static Hp lives2 = new Hp();
@@ -39,22 +34,12 @@ public class ScrollingWorld extends World
 
     //Scroller scroller; // the object that performs the scrolling
     Actor scrollActor; // an actor to stay in view
-    
-    /**
-     * Constructor for objects of class scrollingWorld.
-     * 
-     */
         
     private ArrayList<Tree>trees = new ArrayList<Tree>();
-    private ArrayList<Tree1>treeFronts = new ArrayList<Tree1>(); 
 
-    static Tree tree1, tree2, tree3, tree4, tree5, tree1F, tree1L, tree2F, tree2L ;
-    Tree1 treeFront;
-    private ArrayList<Ground> grounds = new ArrayList<Ground>();
-    Ground first,last;
+    static Tree tree1, tree2, tree3, tree4, tree5;
 
-    static GreenfootSound point = new GreenfootSound("point.wav");
-    static GreenfootSound blast = new GreenfootSound("blast.wav");
+    static GreenfootSound bgm = new GreenfootSound("bgm.wav");
     
     public ScrollingWorld()
     {    
@@ -80,8 +65,8 @@ public class ScrollingWorld extends World
         tree3 = new Tree();
         tree4 = new Tree();
         tree5 = new Tree();
-        // treeFront = new Tree1();
 
+        // treeFront = new Tree1();
         addObject(tree1, 300, 200);
         addObject(tree2, 300, 200);
         addObject(tree3, 300, 200);
@@ -101,36 +86,9 @@ public class ScrollingWorld extends World
         addObject(new Candy(), 500, 300);
         
         setPaintOrder(Player.class, GroundLong.class);
+        bgm.playLoop();
         
-
     }
-
-    
-
-    public void addGround(boolean addToRight){
-        int _x, _y;
-        
-        Ground ground = new Ground();
-
-        if(last.getX() > 800){
-
-        }else{
-            if(addToRight){
-                _x = last.getX() + ground.getWidth();
-                _y = last.getY();
-                last = ground;
-            }else{
-                _x = first.getX()- ground.getWidth();
-                _y = first.getY();
-                first = ground;
-            }
-
-            addObject(ground, _x, _y);
-            grounds.add(ground);
-        }
-
-    }
-
 
       public void scrollGround(int dx){
             groundlong.move(dx);

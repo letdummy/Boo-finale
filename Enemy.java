@@ -8,11 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
-    /**
-     * Act - do whatever the Enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+
+    GreenfootSound blastSound = new GreenfootSound("blast.wav");
     GifImage bat = new GifImage("bat.gif");
     int nyawa = ScrollingWorld.health.getValue();
     
@@ -21,36 +18,22 @@ public class Enemy extends Actor
         // Add your action code here.
         int mv = ScrollingWorld.movement;
         move(mv + (-1));    
-        
         setImage(bat.getCurrentImage());
-        
         getHit();
     }
 
-
-    public void setPending(int pendingValue){
-        
-        
-        if(pendingValue == 0){
-
-        }else{
-            
-        }
-
-    }
-    
     public void getHit(){
         if(isTouching(Player.class)){
-            ScrollingWorld.blast.play();
-            getWorld().addObject(new Enemy(), Greenfoot.getRandomNumber(600)+400, 
-                                300);
-            
+            blastSound.play();
+            getWorld().addObject(new Enemy(), 620 + Greenfoot.getRandomNumber(200), 240 + Greenfoot.getRandomNumber(100));
             getWorld().addObject(new Blast(), getX(), getY());
-            
             ScrollingWorld.health.add(-1);   
             checkLives();
             getWorld().removeObject(this);
             
+        }else if(getX() < -300){
+            getWorld().addObject(new Enemy(), 620 + Greenfoot.getRandomNumber(200), 240 + Greenfoot.getRandomNumber(100));
+            getWorld().removeObject(this);
         }
     }     
     
@@ -70,8 +53,11 @@ public class Enemy extends Actor
         }
         
         else if(nyawa == (1)){
+            //if nyawa == 1, then it will stop bgm.wav playLoop,
+            //and change current world into World_End
             getWorld().addObject(new Hp0(), ScrollingWorld.lives1.getX(),
                                             ScrollingWorld.lives1.getY());
+            ScrollingWorld.bgm.stop();
             Greenfoot.setWorld(new World_End());
         }        
     }

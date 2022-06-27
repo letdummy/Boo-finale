@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=ScrollingWorld
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ scrollingWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ScrollingWorld()
+comment2.params=
+comment2.target=void\ prepare()
+comment3.params=dx
+comment3.target=void\ scrollGround(int)
+comment4.params=dx
+comment4.target=void\ paralaxBackground(int)
+comment5.params=
+comment5.target=int\ getMovement()
+comment6.params=param
+comment6.target=void\ setMovement(int)
+numComments=7

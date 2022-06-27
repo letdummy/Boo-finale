@@ -17,6 +17,8 @@ public class Player extends Actor
     private int acceleration = 1;
     private int speed = 4;
 
+    static GreenfootSound jump = new GreenfootSound("jump.wav");
+    
     public void act()
     {
         GifImage img = World_Gender.gender;
@@ -70,12 +72,11 @@ public class Player extends Actor
         }
         
         if(Greenfoot.isKeyDown("up")){
+            jump.play();
             if(getY()> world.getHeight()/4){
                 setLocation(getX(), getY()-speed*4);
-            }
-            
+            }   
         }
-        
         chekFall();
         
     }

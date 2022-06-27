@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.target=World_Gender
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ World_Gender\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ \ \ Created\ by\:\r\n\ \ \ Agus\ Ardiansyah\ Nh\r\n\ \ \ Aldin\ Nasrun\ Minalloh\r\n\ \ \ Hanifah\ Afkar\ Nabila\r\n
 comment1.params=
 comment1.target=World_Gender()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ World_Gender.\r\n\ \r\n
 comment2.params=
 comment2.target=void\ prepare()
-numComments=3
+comment3.params=
+comment3.target=void\ started()
+numComments=4
