@@ -17,6 +17,12 @@ public class ScrollingWorld extends World
      * Add image bg for background
      */
     
+    //why static? because we want remove this later
+    static Hp lives1 = new Hp();
+    static Hp lives2 = new Hp();
+    static Hp lives3 = new Hp();    
+    static Counter health = new Counter();
+    static Counter scores = new Counter("Score: ");
     
     private GreenfootImage bg0 = new GreenfootImage("bg/1.png");
     private GreenfootImage bg1 = new GreenfootImage("bg/2.png");
@@ -41,8 +47,6 @@ public class ScrollingWorld extends World
         
     private ArrayList<Tree>trees = new ArrayList<Tree>();
     private ArrayList<Tree1>treeFronts = new ArrayList<Tree1>(); 
-    static Counter counter = new Counter();
-    static Counter counter2 = new Counter();
 
     static Tree tree1, tree2, tree3, tree4, tree5, tree1F, tree1L, tree2F, tree2L ;
     Tree1 treeFront;
@@ -56,13 +60,21 @@ public class ScrollingWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false); 
+        health.setValue(3);
+        scores.setValue(0);
         prepare();
+        
+        addObject(scores, 100, 20);
+        addObject(lives1, 500, 20);
+        addObject(lives2, 530, 20);
+        addObject(lives3, 560, 20);  
+        
     }
     
     void prepare(){
         actorMovement = 0;
         //create paralax bg 
-
+        
         tree1 = new Tree();
         tree2 = new Tree();
         tree3 = new Tree();
@@ -90,9 +102,7 @@ public class ScrollingWorld extends World
         
         setPaintOrder(Player.class, GroundLong.class);
         
-        addObject(counter,72,37);
-        addObject(counter2,72,60);
-        counter.setValue(actorMovement);
+
     }
 
     
@@ -129,9 +139,6 @@ public class ScrollingWorld extends World
 
 
     public void paralaxBackground(int dx){
-
-        counter2.setValue(dx);
-
         trees.add(tree1);
         trees.add(tree2);
         trees.add(tree3);

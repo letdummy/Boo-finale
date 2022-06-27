@@ -32,7 +32,7 @@ public class Candy extends Actor
             
             getWorld().addObject(new Spark(), getX(), getY());
             
-            //MyWorld.score.add(5);          
+            ScrollingWorld.scores.add(5);          
             getWorld().removeObject(this);
             
         }

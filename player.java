@@ -25,7 +25,6 @@ public class Player extends Actor
         ScrollingWorld world = (ScrollingWorld) getWorld(); 
         if(Greenfoot.isKeyDown("left")){
             setImage(World_Gender.gender_mirror.getCurrentImage());
-            ScrollingWorld.counter.setValue(ScrollingWorld.actorMovement);
             if(ScrollingWorld.actorMovement > -400){
                 ScrollingWorld.actorMovement -= speed;
                 if(getX() >= +40 ){
@@ -47,7 +46,6 @@ public class Player extends Actor
         
         else if(Greenfoot.isKeyDown("right")){
             setImage(World_Gender.gender.getCurrentImage());
-            ScrollingWorld.counter.setValue(ScrollingWorld.actorMovement);
             if(ScrollingWorld.actorMovement < 400){
                 ScrollingWorld.actorMovement += speed;
                 if(getX() <= (world.getWidth() -40)){

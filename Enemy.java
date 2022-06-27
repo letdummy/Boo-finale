@@ -14,6 +14,8 @@ public class Enemy extends Actor
      */
     
     GifImage bat = new GifImage("bat.gif");
+    int nyawa = ScrollingWorld.health.getValue();
+    
     public void act()
     {
         // Add your action code here.
@@ -45,9 +47,32 @@ public class Enemy extends Actor
             
             getWorld().addObject(new Blast(), getX(), getY());
             
-            //MyWorld.score.add(5);          
+            ScrollingWorld.health.add(-1);   
+            checkLives();
             getWorld().removeObject(this);
             
         }
     }     
+    
+    public void checkLives(){
+        if(nyawa == (3)){
+            //Replace or menimpa Hp to Hp0 in exact same location
+            //to create effect that Hp reduced            
+            getWorld().addObject(new Hp0(), ScrollingWorld.lives3.getX(),
+                                            ScrollingWorld.lives3.getY());
+        }
+        
+        else if(nyawa ==(2)){
+            //Replace or menimpa Hp to Hp0 in exact same location
+            //to create effect that Hp reduced 
+            getWorld().addObject(new Hp0(), ScrollingWorld.lives2.getX(),
+                                            ScrollingWorld.lives2.getY());
+        }
+        
+        else if(nyawa == (1)){
+            getWorld().addObject(new Hp0(), ScrollingWorld.lives1.getX(),
+                                            ScrollingWorld.lives1.getY());
+            Greenfoot.setWorld(new World_End());
+        }        
+    }
 }
